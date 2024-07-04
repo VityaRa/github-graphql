@@ -8,7 +8,7 @@ interface IRepoOwnerCardProps {
 const RepoOwnerCard: React.FC<IRepoOwnerCardProps> = ({ item }) => {
   return (
     <div className={styles.root}>
-      {item.avatarUrl && <img className={styles.img} src={item.avatarUrl} alt="Avatar" />}
+      {item?.avatarUrl && <img className={styles.img} src={item.avatarUrl} alt="Avatar" />}
       <a target="_blank" href={item.url}>{item.login}</a>
     </div>
   );

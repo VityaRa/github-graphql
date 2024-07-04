@@ -3,8 +3,8 @@ import { $detailedRepositoryLoading, fetchRepoById, repoDetailParamName } from "
 import { useEffect } from "react";
 import { useUnit } from "effector-react";
 import { $detailedRepository } from "../model";
-import RepoDetailedItem from "@/entities/ui/RepoDetailedItem/RepoDetailedItem";
-import BackLink from "@/shared/ui/BackLink/BackLink";
+import RepoDetailedItem from "../../../entities/ui/RepoDetailedItem/RepoDetailedItem";
+import BackLink from "../../../shared/ui/BackLink/BackLink";
 import styles from './RepoDetailPage.module.css';
 
 const RepoDetailPage = () => {
