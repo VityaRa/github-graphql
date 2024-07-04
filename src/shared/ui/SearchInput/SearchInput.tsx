@@ -1,20 +1,18 @@
-import React, { useState } from 'react';
+import React, { useCallback } from 'react';
 
-interface SearchInputProps {
-  onSearch: (query: string) => void;
+interface ISearchInputProps {
+  value: string;
+  onChange: (val: string) => void;
 }
 
-const SearchInput: React.FC<SearchInputProps> = ({ onSearch }) => {
-  const [query, setQuery] = useState('');
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setQuery(e.target.value);
-    onSearch(query);
-  };
+const SearchInput: React.FC<ISearchInputProps> = ({ onChange , value}) => {
+  const handleInputChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+    onChange(e.target.value);
+  }, [onChange]);
   
   return (
     <div>
-      <input type="text" value={query} onChange={handleInputChange} />
+      <input type="text" value={value} onChange={handleInputChange} />
     </div>
   );
 };

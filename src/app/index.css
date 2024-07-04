@@ -12,6 +12,7 @@
   -moz-osx-font-smoothing: grayscale;
   
   --background-card-color: #827f7f;
+  --default-border-radius: .8rem;
 }
 
 a {
@@ -66,4 +67,9 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+
+ul, ol {
+  list-style-type: none;
+  padding-left: 0;
 }

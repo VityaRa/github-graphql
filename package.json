@@ -13,6 +13,7 @@
     "@apollo/client": "^3.10.8",
     "@types/node": "^20.14.9",
     "effector": "^23.2.2",
+    "effector-localstorage": "^1.0.0",
     "effector-react": "^23.2.1",
     "graphql": "^16.9.0",
     "react": "^18.3.1",

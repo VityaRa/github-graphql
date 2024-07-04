@@ -1,28 +1,24 @@
-import RepoItem from "@/entities/ui/RepoItem/RepoItem";
-import { GridList, SearchInput } from "@/shared/ui";
-import { useList, useUnit } from "effector-react";
-import React, { useEffect } from "react";
-import { $repos, $reposLoading, fetchReposFx } from "../model";
+import { SearchInput } from "@/shared/ui";
 import Paginator from "@/shared/ui/Paginator/Paginator";
+import { useUnit } from "effector-react";
+import React, { useEffect } from "react";
+import { $afterCursor, $currentPage, $cursors, $reposLoading, $searchQuery, $totalCount, fetchReposFx, onPageChange, onQueryChange } from "../model";
+import RepoList from "./RepoList/RepoList";
+import { REPOS_PER_PAGE } from "@/shared/api/graphql/const/params";
 
 const RootPage: React.FC = () => {
-  const repoItemsList = useList($repos, (item) => <RepoItem item={item} />);
-  const reposLoading = useUnit($reposLoading);
-
-  const handleSearch = (query: string) => {
-    fetchReposFx({ searchTerm: query });
-  };
+  const [total, cursors, afterCursor, currentPage, searchQuery] = useUnit([$totalCount, $cursors, $afterCursor, $currentPage, $searchQuery]);
 
   useEffect(() => {
-    fetchReposFx({ searchTerm: "" });
+    fetchReposFx({ searchTerm: searchQuery, cursors: { end: null, start: null } });
   }, []);
 
   return (
     <main>
       <h1>Total list</h1>
-      <SearchInput onSearch={handleSearch} />
-      {reposLoading ? <div>LOADING</div> : <GridList>{repoItemsList}</GridList>}
-      <Paginator max={10} current={1} />
+      <SearchInput onChange={onQueryChange} value={searchQuery} />
+      <RepoList />
+      <Paginator onClick={onPageChange} max={Math.min(Math.floor(total / REPOS_PER_PAGE), REPOS_PER_PAGE)} current={currentPage} />
     </main>
   );
 };

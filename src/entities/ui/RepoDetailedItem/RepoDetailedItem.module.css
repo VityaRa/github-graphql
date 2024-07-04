@@ -1,0 +1,25 @@
+.root {
+  display: flex;
+  gap: 2.4rem;
+  background-color : rgb(50, 50, 77);
+  padding: 0.8rem;
+  border-radius: var(--default-border-radius);
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+.languages {
+  display: flex;
+  gap: 1.6rem;
+}
+
+.repo {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 0.4rem;
+}

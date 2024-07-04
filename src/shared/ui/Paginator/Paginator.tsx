@@ -4,6 +4,8 @@ interface IPaginatorProps {
   max: number;
   min?: number;
   current: number;
+
+  onClick: (page: number) => void;
 }
 
 const getPagination = (current: number, max: number, total: number) => {
@@ -21,12 +23,12 @@ const getPagination = (current: number, max: number, total: number) => {
   return pagination;
 };
 
-const Paginator: React.FC<IPaginatorProps> = ({ max, current, min = 1 }) => {
-  const paginationIndexes = getPagination(current, max, min);
+const Paginator: React.FC<IPaginatorProps> = ({ onClick, max, current, min = 1 }) => {
+  const paginationIndexes = getPagination(current, 5, max);
   return (
     <ul className={styles.root}>
       {paginationIndexes.map((idx) => (
-        <li className={styles.item}>{idx}</li>
+        <li key={idx} onClick={() => onClick(idx)} className={`${styles.item} ${idx === current ? styles.active : ''}`}>{idx}</li>
       ))}
     </ul>
   );

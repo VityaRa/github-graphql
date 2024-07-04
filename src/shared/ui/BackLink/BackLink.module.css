@@ -1,0 +1,5 @@
+.root {
+  display: flex;
+  gap: 0.4rem;
+  border-radius: var(--default-border-radius);
+}

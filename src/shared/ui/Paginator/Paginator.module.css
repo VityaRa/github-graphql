@@ -5,3 +5,11 @@
   justify-content: center;
   gap: 0.8rem;
 }
+
+.item {
+
+}
+
+.item.active {
+  color: red;
+}

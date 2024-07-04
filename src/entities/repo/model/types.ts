@@ -3,4 +3,5 @@ export default interface Repository {
   stargazerCount: number;
   url: string;
   committedDate: string;
+  id: string;
 }
