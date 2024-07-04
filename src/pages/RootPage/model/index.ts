@@ -1,2 +1,2 @@
-export { fetchReposFx } from './effects';
+export * from './effects';
 export * from './stores';

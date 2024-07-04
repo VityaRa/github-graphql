@@ -7,6 +7,8 @@ export const GET_REPOS = gql`
       pageInfo {
         endCursor
         hasNextPage
+        startCursor
+        hasPreviousPage
       }
       edges {
         node {

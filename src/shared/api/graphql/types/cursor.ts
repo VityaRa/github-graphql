@@ -1,4 +1,5 @@
+export type PaginationCursor = string | null;
 export interface IPaginationCursors {
-  start: string | null;
-  end: string | null;
+  after: PaginationCursor;
+  before: PaginationCursor;
 }
